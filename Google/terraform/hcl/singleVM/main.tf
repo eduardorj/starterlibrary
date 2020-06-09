@@ -35,9 +35,10 @@ variable "gce_ssh_public_key" {
 
 // Create a new compute engine resource
 resource "google_compute_instance" "default" {
-  name         = "${var.unique_resource_name}"
-  machine_type = "${var.machine_type}"
-  zone         = "${var.zone}"
+  name                      = "${var.unique_resource_name}"
+  machine_type              = "${var.machine_type}"
+  zone                      = "${var.zone}"
+  allow_stopping_for_update = true
   boot_disk {
     initialize_params {
       image = "${var.boot_disk}"
